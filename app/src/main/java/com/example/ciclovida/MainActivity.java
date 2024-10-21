@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        Log.i(DEBUG_TAG,"onStart");
     }
 
     //TODO Sirve para cuando le damos al boton de atrás,
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+            Log.i(DEBUG_TAG,"onStop");
     }
 
     //TODO Sirve para varias utilidades,como para cuando le damos al boton de atrás,
@@ -44,12 +46,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.i(DEBUG_TAG,"onResume");
     }
 
     //TODO Sirve para cuando ponemos en primer plano nuestra aplicación desde las aplicaciones abiertas
     @Override
     protected void onRestart() {
         super.onRestart();
+        Log.i(DEBUG_TAG,"onRestart");
+    }
+
+    //TODO Sirve para cuando el usuario le da al boton de atrás o lo hace el sistema
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (isFinishing()) {
+            Log.i(DEBUG_TAG, "onDestroy: El usuario acaba la activity");
+        } else {
+            Log.i(DEBUG_TAG, "onDestroy: El sistema acaba la activity");
+        }
     }
 
     @Override
