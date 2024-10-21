@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CicloVida</string>
     <string name="bienvenida">Bienvenid@s</string>
+    <string name="mensaje_actnext">Hello, this is my NextActivity</string>
+    <string name="btNextActivity">Next Activity OP1</string>
+    <string name="btNextActivity2">Next Activity OP2</string>
 </resources>

@@ -1,10 +1,7 @@
 package com.example.ciclovida;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +9,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+public class NextActivity extends AppCompatActivity {
 
-
-public class MainActivity extends AppCompatActivity {
-
-    private static final String DEBUG_TAG = "LogsAndroid_1";
+    private static final String DEBUG_TAG = "LogsAndroid_2";
 
     //TODO Sirve para cuando se ejecuta por primera vez la aplicación,
     // cuando ponemos en primer plano nuestra aplicación desde las aplicaciones abiertas
@@ -32,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-            Log.i(DEBUG_TAG,"onStop");
+        Log.i(DEBUG_TAG,"onStop");
     }
 
     //TODO Sirve para varias utilidades,como para cuando le damos al boton de atrás,
@@ -74,32 +69,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_next);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        Log.i(DEBUG_TAG,"onCreate");
-        setupUI();
-    }
-
-    //TODO Primera opción botón explicito
-    private void setupUI(){
-        Button btNextActivity = findViewById(R.id.btNextActivity);
-
-        btNextActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, NextActivity.class));
-            }
-        });
-    }
-
-    //TODO Segunda opción implicito
-    public void launchNextActivity(View view){
-        startActivity(new Intent(this, NextActivity.class));
     }
 }
