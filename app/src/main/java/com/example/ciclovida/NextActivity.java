@@ -1,9 +1,12 @@
 package com.example.ciclovida;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -12,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class NextActivity extends AppCompatActivity {
 
     private static final String DEBUG_TAG = "LogsAndroid_2";
+    private static final String CADENA = "ACTIVIDAD_2";
 
     //TODO Sirve para cuando se ejecuta por primera vez la aplicación,
     // cuando ponemos en primer plano nuestra aplicación desde las aplicaciones abiertas
@@ -76,4 +80,20 @@ public class NextActivity extends AppCompatActivity {
             return insets;
         });
     }
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        String cadena = savedInstanceState.getString(CADENA);
+        Log.i(DEBUG_TAG, "onRestoreInstanceState: " + cadena);
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(DEBUG_TAG, "onSaveInstanceState: En onSaveInstance() se guarda la cadena, así no se destruira con el onDestroy() al cambiar el dispositivo de orientación");
+        outState.putString(CADENA, "Esta cadena se salva gracias a recuperarla onRestoreInstanceState()");
+    }
+
+
 }

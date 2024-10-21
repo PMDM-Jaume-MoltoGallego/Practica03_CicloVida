@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -17,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     private static final String DEBUG_TAG = "LogsAndroid_1";
+    private static final String CADENA = "ACTIVIDAD_1";
 
     //TODO Sirve para cuando se ejecuta por primera vez la aplicación,
     // cuando ponemos en primer plano nuestra aplicación desde las aplicaciones abiertas
@@ -101,5 +103,20 @@ public class MainActivity extends AppCompatActivity {
     //TODO Segunda opción implicito
     public void launchNextActivity(View view){
         startActivity(new Intent(this, NextActivity.class));
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        String cadena = savedInstanceState.getString(CADENA);
+        Log.i(DEBUG_TAG, "onRestoreInstanceState: " + cadena);
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(DEBUG_TAG, "onSaveInstanceState: En onSaveInstance() se guarda la cadena, así no se destruira con el onDestroy() al cambiar el dispositivo de orientación");
+        outState.putString(CADENA, "Esta cadena se salva gracias a recuperarla onRestoreInstanceState()");
     }
 }
