@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MyProfile extends AppCompatActivity {
-    private static final String DEBUG_TAG = "LogsAndroid_MyProfile";
+    private final String DEBUG_TAG = this.getClass().getSimpleName();
     private static final String CADENA = "ACTIVIDAD_MyProfyle";
 
     @Override

@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String DEBUG_TAG = "LogsAndroid_1";
+    private final String DEBUG_TAG = this.getClass().getSimpleName();
     private static final String CADENA = "ACTIVIDAD_1";
 
     //TODO Sirve para cuando se ejecuta por primera vez la aplicación,
