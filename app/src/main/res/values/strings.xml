@@ -4,4 +4,14 @@
     <string name="mensaje_actnext">Hello, this is my NextActivity</string>
     <string name="btNextActivity">Next Activity OP1</string>
     <string name="btNextActivity2">Next Activity OP2</string>
+
+    <string name="my_profile">My Profile</string>
+
+    <string name="nombre_id">Nombre:</string>
+    <string name="nombre">Jaume Moltó Gallego</string>
+    <string name="edad_id">Edad:</string>
+    <string name="edad">22</string>
+
+    <string name="btMyProfile">My Profile</string>
+
 </resources>
